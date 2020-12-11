@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"><title>COSA score online calculator</title>
+<link href="../css/divtables.css" rel="stylesheet" type="text/css">
+<script>
+	function test(){
+	var SEX = 0;
+	if( document.getElementById('sex').checked==true )
+		SEX = 1;
+	var CRP =0;
+	if(parseInt(document.getElementById('crp').value) >= 25) 
+		CRP =3;
+	var LC = 0;
+	if (parseInt(document.getElementById('lc').value) >= 10)
+		LC = 1;
+	var NA = 0 ;
+	if (parseInt(document.getElementById('na').value) >= 144)
+		NA = 2;
+	var GLC = 0 ;
+	if (parseInt(document.getElementById('glc').value) >= 8.6)
+		GLC = 1;
+	var EGFR = 0 ;
+	if (parseInt(document.getElementById('egfr').value) <= 75)
+		EGFR = 1;
+	var HB = 0 ;
+	if (parseInt(document.getElementById('hb').value) <= 100)
+		HB = 1;
+	var sum=SEX+CRP+LC+NA+GLC+EGFR+HB;
+	document.getElementById('score').innerHTML = "Score: " + sum;
+	
+	switch (sum){
+		case 1:
+            alert( sum + " point\nVery low risk");
+            break;
+		case 0:
+		case 2:
+		case 3: 
+			alert( sum + " points\nVery low risk");
+			break;
+		case 4:
+		case 5: 
+			alert( sum + " points\nLow risk" );
+			break; 
+		case 6:
+		case 7:
+		case 8: 
+			alert( sum + " points\nModerate risk" );
+			break;
+		case 9:
+		case 10: 
+			alert( sum + " points\nHigh risk");
+			break;
+		}
+}
+</script>
+<style>
+*{
+	margin:0;
+}
+	
+.wrap{
+	width:90%;            
+	margin-top:10px;
+	margin-left:10px;
+	background:#fff;
+}
+.header{
+	height:10%;
+	background:#009870;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	background:#009870;
+	color: #fff;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+.nav{
+	height:5%;
+	font-family: Arial, Helvetica, sans-serif;
+	background:#00CB95;
+	color: #fff;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+.container{
+	font-family: Arial, Helvetica, sans-serif;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	background:#fff;
+}
+.left{
+	width:80%;
+	float:left;
+	background:#333;
+}
+.right{
+	width:20%;
+	float:left;
+}
+.clear{
+	clear:both;    
+}
+.footer{
+	font-family: Arial, Helvetica, sans-serif;
+	height:5%;
+	background:#ccc;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+	
+</style>
+<head>
+<body>
+<div class="wrap">
+		<div class="header">
+		  <p>COSA Score calculator&nbsp;<br></p>
+		  <p>&nbsp;</p>
+  </div>
+	  <div class="nav">
+	    <p>Covid-19 severity assessment prognostic risk score</p>
+	    <p>&nbsp;</p>
+  </div>
+    <div class="container">
+      <p><strong>Description</strong></p>
+      <p>Predict likelihood of severe clinical outcomes (death / need for intensive care) in patients with positive SARS-CoV-2 PCR. Link to abstract.</p>
+      <p>&nbsp;</p>
+<p><strong>Usage</strong></p>
+<p>Laboratory parameters are maximal (C-reactive protein (CRP), sodium, glucose, leucocytes) or minimal (estimated glomerular filtration rate (eGFR) according to the Chronic Kidney Disease Epidemiology Collaboration (CKD-EPI)) values <strong>three days prior to and up to one day after</strong> first positive SARS-CoV-2 testing.</p>
+<p>&nbsp;</p>
+    </div>
+    
+	  <div class="container">
+		
+    <div class="divTable">
+<div class="divTableBody">
+<div class="divTableRow">
+<div class="divTableCell"><strong>Parameter</strong></div>
+<div class="divTableCell">&nbsp;<strong>Value</strong></div>
+<div class="divTableCell">&nbsp;<strong>Units</strong></div>
+<div class="divTableCell">&nbsp;<strong>Cut-off</strong></div>
+<div class="divTableCell"><strong>Scoring</strong></div>
+</div>
+<div class="divTableRow">
+<div class="divTableCell">Male sex</div>
+<div class="divTableCell">
+  <input id="sex" type="checkbox">
+  &nbsp;</div>
+<div class="divTableCell">&nbsp;check if yes</div>
+<div class="divTableCell">&nbsp;Male sex</div>
+<div class="divTableCell">1 point&nbsp; &nbsp; &nbsp;</div>
+</div>
+<div class="divTableRow">
+<div class="divTableCell">CRP (max)</div>
+<div class="divTableCell">
+  <input id="crp" type="text" value="5"/>
+  &nbsp;</div>
+<div class="divTableCell">&nbsp;mg/L</div>
+<div class="divTableCell">&nbsp;&ge; 25 mg/L</div>
+<div class="divTableCell">3 points&nbsp;&nbsp;</div>
+</div>
+<div class="divTableRow">
+<div class="divTableCell">Leucocytes (max)</div>
+<div class="divTableCell">
+  <input id="lc" type="text" value="5" />
+  &nbsp;</div>
+<div class="divTableCell">&nbsp;G/L</div>
+<div class="divTableCell">&nbsp;&ge; 10 G/L</div>
+<div class="divTableCell">2 points&nbsp;&nbsp;</div>
+</div>
+<div class="divTableRow">
+<div class="divTableCell">Sodium (max)</div>
+<div class="divTableCell">
+  <input id="na" type="text" value="140" />
+  &nbsp;</div>
+<div class="divTableCell">&nbsp;mmol/L</div>
+    <div class="divTableCell">&nbsp;&ge; 144 mmol/L</div>
+<div class="divTableCell">1 point</div>
+</div>
+<div class="divTableRow">
+<div class="divTableCell">Glucose (max)</div>
+<div class="divTableCell">
+  <input id="glc" type="text" value="5" />
+  &nbsp;</div>
+<div class="divTableCell">&nbsp;mmol/L</div>
+<div class="divTableCell">&nbsp;&ge; 8.6 mmol/L</div>
+<div class="divTableCell">1 point</div>
+</div>
+<div class="divTableRow">
+<div class="divTableCell">Hemoglobin (min)</div>
+<div class="divTableCell">
+  <input id="hb" type="text" value="110"/>
+  &nbsp;</div>
+<div class="divTableCell">&nbsp;g/L</div>
+<div class="divTableCell">&nbsp;&le; 100 g/L</div>
+<div class="divTableCell">1 point&nbsp; &nbsp;</div>
+</div>
+<div class="divTableRow">
+<div class="divTableCell">eGFR (CKD-EPI, min)</div>
+<div class="divTableCell">
+  <input id="egfr" type="text" value="90"/>
+  &nbsp;</div>
+<div class="divTableCell">&nbsp;mL/min</div>
+<div class="divTableCell">&nbsp;&le; 75 mL/min</div>
+<div class="divTableCell">1 point</div>
+</div>
+</div>
+</div>
+    </div>
+    <div class="container">
+    <p class="text_column">
+	  <br>
+	    <label id = "score"> 
+      Score: </label>
+      <br> 
+		<input id="formX" type="button" value="Calculate" onclick="test()"/>
+	  </p>		
+  </div>
+    <div class="container">
+      <p><strong>Total score per patient</strong></p>
+      <p>0-3 points: very low risk for severe COVID-19 (&lt;10%)&nbsp;</p>
+      <p>4-5 points: low risk for severe COVID-19 (&lt;50%)</p>
+      <p>6-7 points: moderate risk for severe COVID-19 (&gt;50%)</p>
+      <p>8-10 points: high risk for severe COVID-19 (&gt;90%)</p>
+    </div>
+	<div class="container">
+        
+<a href="https://www.insel.ch"><img src="../images/Logo.png" width="250" height="77" alt=""></a></div>
+    <div class="footer">Review version 11-DEC-2020</div>
+</div>
+</body>
+</html>
