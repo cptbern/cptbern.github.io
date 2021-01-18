@@ -31,25 +31,25 @@
 	
 	switch (sum){
 		case 1:
-            alert( sum + " point\nVery low risk");
-            break;
+			alert( sum + " point\nLow risk (<5%)");
+			break;
 		case 0:
 		case 2:
 		case 3: 
-			alert( sum + " points\nVery low risk (<10%)");
+			alert( sum + " points\nLow risk (<5%)");
 			break;
 		case 4:
 		case 5: 
-			alert( sum + " points\nLow risk (<50%)" );
+			alert( sum + " points\nModerate risk (<50%)" );
 			break; 
 		case 6:
 		case 7:
 		case 8: 
-			alert( sum + " points\nModerate risk (>50 %)" );
+			alert( sum + " points\nHigh risk (>50 %)" );
 			break;
 		case 9:
 		case 10: 
-			alert( sum + " points\nHigh risk (>90%)");
+			alert( sum + " points\nVery high risk (>90%)");
 			break;
 		}
 }
@@ -213,22 +213,22 @@
     <p class="text_column">
 	  <br>
 	    <label id = "score"> 
-      Score: </label>
+      Score: 0 </label>
       <br> 
 		<input id="formX" type="button" value="Calculate" onclick="test()"/>
 	  </p>		
   </div>
     <div class="container">
       <p><strong>Total score per patient</strong></p>
-      <p>0-3 points: very low risk for severe COVID-19 (&lt;10%)&nbsp;</p>
-      <p>4-5 points: low risk for severe COVID-19 (&lt;50%)</p>
-      <p>6-7 points: moderate risk for severe COVID-19 (&gt;50%)</p>
-      <p>8-10 points: high risk for severe COVID-19 (&gt;90%)</p>
+      <p>0-3 points: low risk for severe COVID-19 (&lt;5%)&nbsp;</p>
+      <p>4-5 points: moderate risk for severe COVID-19 (&lt;50%)</p>
+      <p>6-7 points: high risk for severe COVID-19 (&gt;50%)</p>
+      <p>8-10 points: very high risk for severe COVID-19 (&gt;90%)</p>
     </div>
 	<div class="container">
         
 <a href="https://www.insel.ch"><img src="../images/Logo.png" width="250" height="77" alt=""></a></div>
-    <div class="footer">Review version 11-DEC-2020</div>
+    <div class="footer">Review version 18-JAN-2021</div>
 </div>
 </body>
 </html>
